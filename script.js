@@ -29,14 +29,14 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame(){
-    
+    let roundScore = "";
     while (humanScore < 3 && computerScore < 3){
         let computerChoice = getComputerChoice();
-         let humanInput = prompt(humanScore + " : " + computerScore +  "\nWhat do you choose? Rock, Paper, or Scissors", "");
-         let humanChoice = getHumanChoice(humanInput);        
+        let humanInput = prompt(humanScore + " : " + computerScore + "\n" + roundScore +  "\nWhat's your choice? Rock, Paper, or Scissors", "");
+        let humanChoice = getHumanChoice(humanInput);        
         console.log("Your Choice: " + humanChoice);
         console.log("Computer Choice: " + computerChoice);
-        let roundScore = playRound(computerChoice,humanChoice);
+        roundScore = playRound(computerChoice,humanChoice);
         console.log(roundScore);
         console.log(humanScore + " : " + computerScore);
         
@@ -62,16 +62,16 @@ function playGame(){
     function gameEnd(humanScore, computerScore){
 
         if (humanScore > computerScore){
-            return("You win!");
+            return("VICTORY!");
         }
         else {
-            return ("You lose!");
+            return ("DEFEAT!");
         }
     }
 
     let endPrompt = gameEnd(humanScore, computerScore);
     console.log(endPrompt);
-    prompt(humanScore + " : " + computerScore + "\n" + endPrompt);
+    prompt(endPrompt + "\n" + humanScore + " : " + computerScore + "\n" + roundScore);
     
 }
 playGame();   
